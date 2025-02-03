@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            text-align: center;
+            max-width: 400px;
+        }
+        .robot {
+            font-size: 50px;
+        }
+        h1 {
+            font-size: 1.8rem;
+        }
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 12px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .button {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            color: white;
+            transition: transform 0.2s;
+        }
+        .blue { background-color: #0066ff; }
+        .green { background-color: #00cc66; }
+        .orange { background-color: #ff6600; }
+        .red { background-color: #cc0000; }
+        .button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="robot">🤖</div>
+        <h1>Calculator</h1>
+        <p>Enter values below:</p>
+        <input type="number" id="a" placeholder="Enter a value for A">
+        <input type="number" id="b" placeholder="Enter a value for B">
+        <div class="button-container">
+            <button class="button blue" onclick="product()">Multiply A and B</button>
+            <button class="button green" onclick="power()">A raised to B</button>
+            <button class="button orange" onclick="remainder()">Find the Remainder</button>
+            <button class="button red" onclick="checkEquality()">Check if A equals B</button>
+        </div>
+    </div>
+
+    <script>
+        function product() {
+            let a = parseFloat(document.getElementById('a').value);
+            let b = parseFloat(document.getElementById('b').value);
+            alert("Product: " + (a * b));
+        }
+        function power() {
+            let a = parseFloat(document.getElementById('a').value);
+            let b = parseFloat(document.getElementById('b').value);
+            alert("A^B: " + Math.pow(a, b));
+        }
+        function remainder() {
+            let a = parseFloat(document.getElementById('a').value);
+            let b = parseFloat(document.getElementById('b').value);
+            alert("Remainder: " + (a % b));
+        }
+        function checkEquality() {
+            let a = parseFloat(document.getElementById('a').value);
+            let b = parseFloat(document.getElementById('b').value);
+            alert(a === b ? "A is equal to B" : "A is not equal to B");
+        }
+    </script>
+</body>
+</html>
